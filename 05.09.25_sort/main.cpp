@@ -5,11 +5,11 @@ int main() {
     int arr[] = {1, 8, 2, 5, 3, 11};
 	const int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-	sorting::print_array("Массив до сортировки:", arr, arr_size);
+	saa::print_array("Массив до сортировки:", arr, arr_size);
     
-    sorting::merge_sort(arr, 0, arr_size-1);
+    saa::merge_sort(arr, 0, arr_size-1);
 
-    sorting::print_array("Массив после сортировки:", arr, arr_size);
+    saa::print_array("Массив после сортировки:", arr, arr_size);
 
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "merge_sort.hpp"
 
-void sorting::merge(int* const arr, int left, int mid, int right) {
+void saa::merge(int* const arr, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -42,7 +42,7 @@ void sorting::merge(int* const arr, int left, int mid, int right) {
     delete[] right_arr;
 }
 
-void sorting::merge_sort(int arr[], int left, int right) {
+void saa::merge_sort(int arr[], int left, int right) {
     if(left < right){
         int mid = left + (right - left) / 2;
         merge_sort(arr, left, mid);
