@@ -1,0 +1,10 @@
+add_executable(test_long test.cpp)
+
+target_link_libraries(test_long
+    gtest
+    gtest_main
+    longnumber
+)
+
+include(GoogleTest)
+gtest_discover_tests(test_long)
