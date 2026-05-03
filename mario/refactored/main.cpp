@@ -19,10 +19,10 @@ typedef struct SObject {
 char map[mapHeight][mapWidth + 1];
 TObject mario;
 
-TObject *brick = NULL;
+TObject *brick = nullptr;
 int brickLength;
 
-TObject *moving = NULL;
+TObject *moving = nullptr;
 int movingLength;
 
 int level = 1;
@@ -57,6 +57,7 @@ void InitObject(TObject *obj, float xPos, float yPos, float oWidth, float oHeigh
 	obj->vertSpeed = 0;
 	obj->cType = inType;
 	obj->horizonSpeed = 0.2;
+    obj->isFly = false;
 }
 
 bool IsCollision(TObject o1, TObject o2);
@@ -211,13 +212,23 @@ bool IsCollision(TObject o1, TObject o2) {
 
 TObject *GetNewBrick() {
 	brickLength++;
-	brick = (TObject*)realloc(brick, sizeof(*brick) * brickLength);
+	TObject *tmp = (TObject*)realloc(brick, sizeof(*brick) * brickLength);
+	if (tmp == nullptr) {
+        brickLength--;
+        return nullptr;
+    }
+	brick = tmp;
 	return brick + brickLength - 1;
 }
 
 TObject *GetNewMoving() {
 	movingLength++;
-	moving = (TObject*)realloc(moving, sizeof(*moving) * movingLength);
+	TObject *tmp = (TObject*)realloc(moving, sizeof(*moving) * movingLength);
+	if (tmp == nullptr) {
+        movingLength--;
+        return nullptr;
+    }
+	moving = tmp;
 	return moving + movingLength - 1;
 }
 
@@ -234,9 +245,12 @@ void CreateLevel(int lvl) {
 	system("color 9F");
 
 	brickLength = 0;
-	brick = (TObject*)realloc(brick, 0);
+	free(brick);
+	brick = nullptr;
+
 	movingLength = 0;
-	moving = (TObject*)realloc(moving, 0);
+	free(moving);
+	moving = nullptr;
 
 	InitObject(&mario, 39, 10, 3, 3, '@');
 	score = 0;
@@ -328,5 +342,7 @@ int main() {
 		Sleep(10);
 	} while (GetKeyState(VK_ESCAPE) >= 0);
 
+    free(brick);
+    free(moving);
 	return 0;
 }
