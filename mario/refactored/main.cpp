@@ -241,55 +241,58 @@ void CreateLevel(int lvl) {
 	InitObject(&mario, 39, 10, 3, 3, '@');
 	score = 0;
 
-	if (lvl == 1) {
-		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
-			InitObject(GetNewBrick(), 30, 10, 5, 3, '?');
-			InitObject(GetNewBrick(), 50, 10, 5, 3, '?');
-		InitObject(GetNewBrick(), 60, 15, 40, 10, '#');
-			InitObject(GetNewBrick(), 60, 5, 10, 3, '-');
-			InitObject(GetNewBrick(), 70, 5, 5, 3, '?');
-			InitObject(GetNewBrick(), 75, 5, 5, 3, '-');
-			InitObject(GetNewBrick(), 80, 5, 5, 3, '?');
-			InitObject(GetNewBrick(), 85, 5, 10, 3, '-');
-		InitObject(GetNewBrick(), 100, 20, 20, 5, '#');
-		InitObject(GetNewBrick(), 120, 15, 10, 10, '#');
-		InitObject(GetNewBrick(), 150, 20, 40, 5, '#');
-		InitObject(GetNewBrick(), 210, 15, 10, 10, '+');
+	switch (lvl) {
+		case 1:
+			InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
+				InitObject(GetNewBrick(), 30, 10, 5, 3, '?');
+				InitObject(GetNewBrick(), 50, 10, 5, 3, '?');
+			InitObject(GetNewBrick(), 60, 15, 40, 10, '#');
+				InitObject(GetNewBrick(), 60, 5, 10, 3, '-');
+				InitObject(GetNewBrick(), 70, 5, 5, 3, '?');
+				InitObject(GetNewBrick(), 75, 5, 5, 3, '-');
+				InitObject(GetNewBrick(), 80, 5, 5, 3, '?');
+				InitObject(GetNewBrick(), 85, 5, 10, 3, '-');
+			InitObject(GetNewBrick(), 100, 20, 20, 5, '#');
+			InitObject(GetNewBrick(), 120, 15, 10, 10, '#');
+			InitObject(GetNewBrick(), 150, 20, 40, 5, '#');
+			InitObject(GetNewBrick(), 210, 15, 10, 10, '+');
 
-		InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
-	}
-	if (lvl == 2) {
-		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
-		InitObject(GetNewBrick(), 60, 15, 10, 10, '#');
-		InitObject(GetNewBrick(), 80, 20, 20, 5, '#');
-		InitObject(GetNewBrick(), 120, 15, 10, 10, '#');
-		InitObject(GetNewBrick(), 150, 20, 40, 5, '#');
-		InitObject(GetNewBrick(), 210, 15, 10, 10, '+');
+			InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
+			break;
 
-		InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 65, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 120, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 160, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 175, 10, 3, 2, 'o');
-	}
-	if (lvl == 3) {
-		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
-		InitObject(GetNewBrick(), 80, 20, 15, 5, '#');
-		InitObject(GetNewBrick(), 120, 15, 15, 10, '#');
-		InitObject(GetNewBrick(), 160, 10, 15, 15, '+');
+		case 2:
+			InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
+			InitObject(GetNewBrick(), 60, 15, 10, 10, '#');
+			InitObject(GetNewBrick(), 80, 20, 20, 5, '#');
+			InitObject(GetNewBrick(), 120, 15, 10, 10, '#');
+			InitObject(GetNewBrick(), 150, 20, 40, 5, '#');
+			InitObject(GetNewBrick(), 210, 15, 10, 10, '+');
 
-		InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 50, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 90, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 120, 10, 3, 2, 'o');
-		InitObject(GetNewMoving(), 130, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 65, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 120, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 160, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 175, 10, 3, 2, 'o');
+			break;
+
+		case 3:
+			InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
+			InitObject(GetNewBrick(), 80, 20, 15, 5, '#');
+			InitObject(GetNewBrick(), 120, 15, 15, 10, '#');
+			InitObject(GetNewBrick(), 160, 10, 15, 15, '+');
+
+			InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 50, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 90, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 120, 10, 3, 2, 'o');
+			InitObject(GetNewMoving(), 130, 10, 3, 2, 'o');
+			break;
 	}
 	maxLvl = 3;
 }
-
 int main() {
 	CreateLevel(level);
 
